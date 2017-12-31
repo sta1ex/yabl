@@ -192,7 +192,7 @@ body{
 
 	.flexbox #cspio-page{
 	display:flex;
-	padding:10px;
+	padding:0px;
 	flex-direction: column;
 	}
 }

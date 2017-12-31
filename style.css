@@ -53,8 +53,13 @@ body{
 }
 
 #cspio-headline{
-	margin-top:0;
-}
+		font-family: 'Merriweather', serif;
+		font-size: 42px;
+		color:#fff;
+		text-align:left;
+		line-height: 1.90em;
+		margin-top:0;
+	}
 
 #cspio-name, #cspio-email, #cspio-subscribe-btn{
 	margin-bottom:10px;
@@ -148,6 +153,7 @@ body{
 		color:#fff;
 		text-align:left;
 		line-height: 1.90em;
+		margin-top:0;
 	}
 	#cspio-logo{
 		width:120px;

@@ -78,6 +78,13 @@ body{
 	padding-bottom:11px;
 }
 
+.cspio .seperate .input-group .form-control:first-child, .cspio .seperate .input-group-addon:first-child, .cspio .seperate .input-group-btn:first-child>.btn, .cspio .seperate .input-group-btn:first-child>.dropdown-toggle, .cspio .seperate .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle) {
+	border-radius: 0px;
+}
+.cspio .seperate .input-group .form-control:last-child, .cspio .seperate .input-group-addon:last-child, .cspio .seperate .input-group-btn:last-child>.btn, .cspio .seperate .input-group-btn:last-child>.dropdown-toggle, .cspio .seperate .input-group-btn:first-child>.btn:not(:first-child) {
+	border-radius: 0px;
+}
+
 #cspio-privacy-policy-txt{
 	display:inline-block;
 	font-size:11px;

@@ -144,7 +144,7 @@ body{
 
 
 /* Mobile */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
 	
 	#cspio-headline{
 		font-family: 'Merriweather', serif;
@@ -155,6 +155,7 @@ body{
 	}
 	#cspio-logo{
 		width:120px;
+		height:54px;
 	}
 	#cspio-page{
 		padding-top: 10px;

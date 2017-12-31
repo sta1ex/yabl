@@ -39,7 +39,11 @@ body{
 	max-width:100%;
 	height:auto;
 }
-
+#cspio-logo{
+	padding:10px 0px 50px 10px;
+	width:180px;
+	height:68px;
+}
 /* Content Elements */
 #cspio-content{
 	width:100%;

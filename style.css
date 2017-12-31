@@ -141,6 +141,17 @@ body{
 
 /* Mobile */
 @media (max-width: 480px) {
+	
+	#cspio-headline{
+		font-family: 'Merriweather', serif;
+		font-size: 24px;
+		color:#fff;
+		text-align:left;
+		line-height: 1.90em;
+	}
+	#cspio-logo{
+		width:120px;
+	}
 	#cspio-page{
 		padding-top: 10px;
 	}

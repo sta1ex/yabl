@@ -272,11 +272,12 @@
 		$(document).ready(loadSounds);
 var soundProximity = "Proximity";
 var $element = $("#soundplay");
-var $element2 = $("#soundpause")
+var $element2 = $("#soundpause");
 var filterNode;
 var filterMultiplier = 18; // how fast will filter adjust?
 var filterOffset = 2500; // when will filter start adjusting?
 var looping; // state for button event handling
+		
 function loadSounds() {
   createjs.Sound.on("fileload", handleLoad, this);
   // register sounds, which will preload automatically

@@ -313,7 +313,7 @@ var looping; // state for button event handling
 function loadSounds() {
   createjs.Sound.on("fileload", handleLoad, this);
   // register sounds, which will preload automatically
-  createjs.Sound.registerSound("https://s3.amazonaws.com/nrf-codepen-assets/drone.mp3", soundProximity);
+  createjs.Sound.registerSound("https://api.soundcloud.com/tracks/294942017", soundProximity);
 }
 
 function handleLoad(evt) {

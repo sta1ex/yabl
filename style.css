@@ -12,16 +12,13 @@ body{
 
 .placeholder { color: #aaa; }
 
-#filterButton {
+#soundpause {
   display: none;
 }
 
-.start-message {
-  text-align: left;
-  height: 20px;
-  padding-top: 10px;
-  padding-left: 10px;
-  cursor: pointer;
+.button-color {
+	border:0px;
+	background:none;
 }
 
 #cspio-page{

@@ -212,9 +212,6 @@
 
 	<!-- jQuery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	
-	<!-- Audio -->
-	<script src="audio.js"></script>
 
 	<!-- Modernizr -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
@@ -222,6 +219,12 @@
 	<!-- Google Analytics Code Goes Here-->
 </head>
 <body>
+	<script>
+		$('audio').mediaelementplayer({
+			features: ['playpause']
+		});
+	</script>
+	
 	<h3 class="nudity"><div style="width:26px;"><audio autoplay="autoplay" class="audio" controls="controls" loop="loop"><source src="jingle8.mp3" type="audio/mpeg" /></audio></div>18+</h3>
 	<div id="cspio-page">
 		<div id="cspio-content">

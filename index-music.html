@@ -333,19 +333,20 @@ function handleLoad(evt) {
   dynamicsNode.connect(filterNode);
 
   // wrap our sound playing in a click event so we can be played on mobile devices
-  $(".start-message").click(revealDemo);
+  $("#soundplay").click(revealDemo);
 }
 
 function revealDemo() {
-  $("#filterButton").show();
+  $("#soundpause").show();
+  $("#soundplay").hide();
 
   looping = true;
-  $("#filterButton").click(handleButtonClick); // add button's event handler
+  $("#soundpause").click(handleButtonClick); // add button's event handler
 
   // proximity check
   function mousedistance(mX, mY) {
 
-    var distance = calculateDistance($element, mX, mY);
+    var distance = calculateDistance($element2, mX, mY);
     var filterValue = (filterOffset - (filterMultiplier * distance));
     filterNode.frequency.value = filterValue > 0 ? filterValue : 0;
     // testing code

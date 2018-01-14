@@ -12,10 +12,6 @@ body{
 
 .placeholder { color: #aaa; }
 
-#soundpause {
-  display: none;
-}
-
 .button-color {
 	border:0px;
 	background:none;

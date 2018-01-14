@@ -219,7 +219,7 @@
 	<!-- Google Analytics Code Goes Here-->
 </head>
 <body>
-	<h3 class="nudity"><button type="button" name="button" class="button-color" id="soundplay"><i class="fa fa-music" aria-hidden="true"></i></button><button type="button" name="button" class="button-color" id="soundpause"><i class="fa fa-pause-circle" aria-hidden="true"></i></button>18+</h3>
+	<h3 class="nudity"><audio controls="controls" loop="loop" ><source src="jingle8.mp3" type="audio/mpeg" /></audio>18+</h3>
 	<div id="cspio-page">
 		<div id="cspio-content">
 			<div style="display:block;width:100%;">
@@ -262,73 +262,6 @@
 				}
 			}
 		);
-	</script>
-	
-	<script src="stopExecutionOnTimeout.js"></script>
-	<script src='https://code.createjs.com/soundjs-0.6.2.min.js'></script>
-	<script src='https://code.jquery.com/jquery-2.2.4.min.js'></script>
-	
-	<script>
-		$(document).ready(loadSounds);
-var soundProximity = "Proximity";
-var $element = $("#soundplay");
-var $element2 = $("#soundpause");
-var filterNode;
-var filterMultiplier = 18; // how fast will filter adjust?
-var filterOffset = 2500; // when will filter start adjusting?
-var looping; // state for button event handling
-		
-function loadSounds() {
-  createjs.Sound.on("fileload", handleLoad, this);
-  // register sounds, which will preload automatically
-  createjs.Sound.registerSound("jingle8.mp3", soundProximity);
-}
-function handleLoad(evt) {
-
-  // create filter in existing context, connect to context destination
-  var context = createjs.Sound.activePlugin.context;
-  filterNode = context.createBiquadFilter();
-  filterNode.type = "lowpass";
-  filterNode.frequency.value = 20000;
-  filterNode.connect(context.destination);
-
-  // attach filter node to our existing dynamicsCompressorNode, which was connected to context.destination
-  var dynamicsNode = createjs.Sound.activePlugin.dynamicsCompressorNode;
-  dynamicsNode.disconnect();
-  dynamicsNode.connect(filterNode);
-
-  // wrap our sound playing in a click event so we can be played on mobile devices
-  $("#soundplay").click(revealDemo);
-}
-		
-function revealDemo() {
-  $("#soundpause").show();
-  $("#soundplay").hide();
-  looping = true;
-  $("#soundpause").click(handleButtonClick); // add button's event handler
-  
-  startLoopPlayback();
-}
-function handleButtonClick(e) {
-  e.stopImmediatePropagation();   // prevent double clicks
-  if (looping) {
-    // stopping the soundInstance doesn't seem to work when you have a filter node
-    // connected - you have to stop everything.
-    createjs.Sound.stop();
-    $element.show();
-    $element2.hide();
-    looping = false;
-  } else {
-    startLoopPlayback();
-    $element2.show();
-    $element.hide();
-    looping = true;
-  }
-}
-function startLoopPlayback() {
-  filterNode.frequency.value = 200;
-  createjs.Sound.play(soundProximity, {loop: -1});
-}
 	</script>
 
 	</body>

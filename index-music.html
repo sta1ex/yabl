@@ -248,7 +248,7 @@
 	<!-- Google Analytics Code Goes Here-->
 </head>
 <body>
-	<h3 class="nudity"><button type="button" name="button" class="button-color" id="filterButton"><i class="fa fa-music" aria-hidden="true"></i></button><i class="fa fa-pause-circle" aria-hidden="true"></i>18+</h3>
+	<h3 class="nudity"><button type="button" name="button" class="button-color" id="soundplay"><i class="fa fa-music" aria-hidden="true"></i></button><button type="button" name="button" class="button-color" id="soundplay"><i class="fa fa-pause-circle" aria-hidden="true"></i></button>18+</h3>
 	<div class="distance"></div>
 	<div id="cspio-page">
 		<div id="cspio-content">
@@ -304,8 +304,8 @@
 		$(document).ready(loadSounds);
 
 var soundProximity = "Proximity";
-var soundClick = "Click";
-var $element = $("#filterButton");
+var $element = $("#soundplay");
+var $element2 = $("#soundpause")
 var $distance = $(".distance");
 var filterNode;
 var filterMultiplier = 18; // how fast will filter adjust?
@@ -338,7 +338,6 @@ function handleLoad(evt) {
 
 function revealDemo() {
   $("#filterButton").show();
-  $(".start-message").hide();
 
   looping = true;
   $("#filterButton").click(handleButtonClick); // add button's event handler
@@ -350,7 +349,7 @@ function revealDemo() {
     var filterValue = (filterOffset - (filterMultiplier * distance));
     filterNode.frequency.value = filterValue > 0 ? filterValue : 0;
     // testing code
-    // $distance.text(distance);
+     $distance.text(distance);
  };
   
   // add proximity-filter handler
@@ -367,12 +366,13 @@ function handleButtonClick(e) {
     // stopping the soundInstance doesn't seem to work when you have a filter node
     // connected - you have to stop everything.
     createjs.Sound.stop();
-    createjs.Sound.play(soundClick);
-    $element.text("Restart");
+    $element.show();
+    $element2.hide();
     looping = false;
   } else {
     startLoopPlayback();
-    $element.text("Click Me");
+    $element2.show();
+    $element.hide();
     looping = true;
   }
 }

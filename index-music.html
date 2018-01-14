@@ -248,11 +248,8 @@
 	<!-- Google Analytics Code Goes Here-->
 </head>
 <body>
-	<div class="demo-container">
-		<div class="start-message"><i class="fa fa-music" aria-hidden="true"></i></div>
-	</div>
+	<h3 class="nudity"><button type="button" name="button" class="button-color" id="filterButton"><i class="fa fa-music" aria-hidden="true"></i></button><i class="fa fa-pause-circle" aria-hidden="true"></i>18+</h3>
 	<div class="distance"></div>
-	<h3 class="nudity"><button type="button" name="button" class="button-color" id="filterButton"><i class="fa fa-music" aria-hidden="true"></i></button>18+</h3>
 	<div id="cspio-page">
 		<div id="cspio-content">
 			<div style="display:block;width:100%;">
@@ -319,7 +316,6 @@ function loadSounds() {
   createjs.Sound.on("fileload", handleLoad, this);
   // register sounds, which will preload automatically
   createjs.Sound.registerSound("https://s3.amazonaws.com/nrf-codepen-assets/drone.mp3", soundProximity);
-  createjs.Sound.registerSound("https://s3.amazonaws.com/nrf-codepen-assets/water-drop.mp3", soundClick);
 }
 
 function handleLoad(evt) {

@@ -12,6 +12,20 @@ body{
 
 .placeholder { color: #aaa; }
 
+#filterButton {
+  display: none;
+}
+
+.start-message {
+  position: absolute;
+  text-align: left;
+  width: 100%;
+  height: 150px;
+  padding-top: 10px;
+  padding-left: 10px;
+  cursor: pointer;
+}
+
 #cspio-page{
 	padding-top:60px;
 	padding-bottom:0px;

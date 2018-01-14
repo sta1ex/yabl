@@ -1,3 +1,0 @@
-$('audio').mediaelementplayer({
-	features: ['playpause']
-});

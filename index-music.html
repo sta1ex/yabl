@@ -284,22 +284,23 @@ function loadSounds() {
   createjs.Sound.registerSound("jingle8.mp3", soundProximity);
 }
 function handleLoad(evt) {
- -
- -  // create filter in existing context, connect to context destination
- -  var context = createjs.Sound.activePlugin.context;
- -  filterNode = context.createBiquadFilter();
- -  filterNode.type = "lowpass";
- -  filterNode.frequency.value = 20000;
- -  filterNode.connect(context.destination);
- -
- -  // attach filter node to our existing dynamicsCompressorNode, which was connected to context.destination
- -  var dynamicsNode = createjs.Sound.activePlugin.dynamicsCompressorNode;
- -  dynamicsNode.disconnect();
- -  dynamicsNode.connect(filterNode);
- -
-    // wrap our sound playing in a click event so we can be played on mobile devices
-    $("#soundplay").click(revealDemo);
-  }
+
+  // create filter in existing context, connect to context destination
+  var context = createjs.Sound.activePlugin.context;
+  filterNode = context.createBiquadFilter();
+  filterNode.type = "lowpass";
+  filterNode.frequency.value = 20000;
+  filterNode.connect(context.destination);
+
+  // attach filter node to our existing dynamicsCompressorNode, which was connected to context.destination
+  var dynamicsNode = createjs.Sound.activePlugin.dynamicsCompressorNode;
+  dynamicsNode.disconnect();
+  dynamicsNode.connect(filterNode);
+
+  // wrap our sound playing in a click event so we can be played on mobile devices
+  $("#soundplay").click(revealDemo);
+}
+		
 function revealDemo() {
   $("#soundpause").show();
   $("#soundplay").hide();

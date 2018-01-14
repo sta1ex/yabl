@@ -27,18 +27,15 @@
 
 	<!-- Calculated Styles -->
 	<style type="text/css">
-
 	html {
 		height: 100%;
 		overflow: hidden;
 	}
-
 	body {
 		height:100%;
 		overflow: auto;
 		-webkit-overflow-scrolling: touch;
 	}
-
 	html{
 		height:100%;
 		background: #ffffff url('christmas.jpg'); no-repeat center bottom fixed;
@@ -47,20 +44,15 @@
 		-o-background-size: cover;
 		background-size: cover;
 	}
-
 	#cspio-page{
-
 	}
-
 	.flexbox #cspio-page{
 		align-items: center;
 		justify-content: center;
 	}
-
 	.cspio body{
 		background: transparent;
 	}
-
 	.cspio body, .cspio body p{
         font-family: Helvetica, Arial, sans-serif;
 		font-weight: 400;
@@ -69,40 +61,33 @@
         line-height: 1.50em;
         color:#ffffff;
     }
-
 	::-webkit-input-placeholder {
 		font-family:Helvetica, Arial, sans-serif;
 		font-weight: 400;
 		font-style: ;
 	}
-
 	::-moz-placeholder {
 		font-family:Helvetica, Arial, sans-serif;
 		font-weight: 400;
 		font-style: ;
 	}
-
 	:-ms-input-placeholder {
 		font-family:Helvetica, Arial, sans-serif;
 		font-weight: 400;
 		font-style: ;
 	}
-
 	:-moz-placeholder {
 		font-family:Helvetica, Arial, sans-serif;
 		font-weight: 400;
 		font-style: ;
 	}
-
 	.cspio button{
         font-family: Helvetica, Arial, sans-serif;
 		font-weight: 400;
     }
-
     .cspio a, .cspio a:visited, .cspio a:hover, .cspio a:active{
 		color: #ffffff;
 	}
-
 	.cspio .btn-primary,
 	.cspio .btn-primary:focus,
 	.gform_button,
@@ -123,7 +108,6 @@
 		*background-color: #d9d9d9;
 		filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 	}
-
 	.cspio .btn-primary:hover,
 	.cspio .btn-primary:active,
 	.cspio .btn-primary.active,
@@ -142,7 +126,6 @@
 		background-color: #d9d9d9;
 		*background-color: #cccccc;
 	}
-
 	.cspio .btn-primary:active,
 	.cspio .btn-primary.active,
 	.cspio .btn-primary:focus:active,
@@ -153,26 +136,21 @@
 	#mc-embedded-subscribe.active {
 		background-color: #bfbfbf;
 	}
-
 	.form-control,
 	.progress {
 		background-color: rgba(255, 255, 255, 0.85);
 	}
-
-
 	.cspio .btn-primary:hover,
 	.cspio .btn-primary:active {
 		color: black;
 		text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
 		border-color: #e6e6e6;
 	}
-
 	.cspio input[type='text']:focus {
 		webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(217,217,217,0.6);
 		-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(217,217,217,0.6);
 		box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0 0 8px rgba(217,217,217,0.6);
 	}
-
     #cspio-content {
 		display: none;
 		max-width: 600px;
@@ -184,7 +162,6 @@
 		background-clip: padding-box;
 		background-color:transparent;
 	}
-
 	.cspio .progress-bar,
 	.countdown_section,
 	.cspio .btn-primary,
@@ -193,30 +170,25 @@
 		background-image: none;
 		text-shadow: none;
 	}
-
 	.cspio input,
 	.cspio input:focus {
 		-webkit-box-shadow: none !important;
 		box-shadow: none !important;
 	}
-
 	#cspio-subscribe-btn{
 	    background:#000;
 	    color: #fff;
 	}
-
 	#cspio-subscribe-btn:hover{
 	    background: #fff;
 	    color: #000;
 	}
-
 	#cspio-credit img{
 		margin-left:auto;
 		margin-right:auto;
 		width:125px;
 		    margin-top: -4px;
 	}
-
 	#cspio-credit {
 		font-size:11px;
 	}
@@ -236,7 +208,6 @@
 		margin-right:10px;
 		margin-bottom:0px;	
 	}
-
 	</style>
 
 	<!-- jQuery -->
@@ -278,13 +249,11 @@
 	<script>
 		// Animate Delay
 		setTimeout(function(){ jQuery("#cspio-content").show().addClass('animated fadeIn'); }, 250);
-
 		// Reseize
 		function resize(){
 				$('head').append("<style id='form-style' type='text/css'></style>");
 				$('#form-style').html('.cspio .input-group-btn, .cspio .input-group{display:block;width:100%;}.cspio #cspio-subscribe-btn{margin-left:0;width:100%;display:block;}.cspio .input-group .form-control:first-child, .cspio .input-group-addon:first-child, .cspio .input-group-btn:first-child>.btn, .cspio .input-group-btn:first-child>.dropdown-toggle, .cspio .input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle) {border-radius: 0px;}.cspio .input-group .form-control:last-child, .cspio .input-group-addon:last-child, .cspio .input-group-btn:last-child>.btn, .cspio .input-group-btn:last-child>.dropdown-toggle, .cspio .input-group-btn:first-child>.btn:not(:first-child) {border-radius: 0px;}');
 		}
-
 		$('#cspio-content').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',
 			function(){
 				var width = $('#cspio-field-wrapper').width();
@@ -301,33 +270,30 @@
 	
 	<script>
 		$(document).ready(loadSounds);
-
 var soundProximity = "Proximity";
 var $element = $("#soundplay");
 var $element2 = $("#soundpause")
+var filterNode;
+var filterMultiplier = 18; // how fast will filter adjust?
+var filterOffset = 2500; // when will filter start adjusting?
 var looping; // state for button event handling
-
 function loadSounds() {
   createjs.Sound.on("fileload", handleLoad, this);
   // register sounds, which will preload automatically
   createjs.Sound.registerSound("jingle.mp3", soundProximity);
 }
-
 function handleLoad(evt) {
   // wrap our sound playing in a click event so we can be played on mobile devices
   $("#soundplay").click(revealDemo);
 }
-
 function revealDemo() {
   $("#soundpause").show();
   $("#soundplay").hide();
-
   looping = true;
   $("#soundpause").click(handleButtonClick); // add button's event handler
   
   startLoopPlayback();
 }
-
 function handleButtonClick(e) {
   e.stopImmediatePropagation();   // prevent double clicks
   if (looping) {
@@ -344,11 +310,10 @@ function handleButtonClick(e) {
     looping = true;
   }
 }
-
 function startLoopPlayback() {
+  filterNode.frequency.value = 200;
   createjs.Sound.play(soundProximity, {loop: -1});
 }
-
 	</script>
 
 	</body>

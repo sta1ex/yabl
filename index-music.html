@@ -299,6 +299,96 @@
 			}
 		);
 	</script>
+	
+	<script>
+		$(document).ready(loadSounds);
+
+var soundProximity = "Proximity";
+var soundClick = "Click";
+var $element = $("#filterButton");
+var $distance = $(".distance");
+var filterNode;
+var filterMultiplier = 18; // how fast will filter adjust?
+var filterOffset = 2500; // when will filter start adjusting?
+var looping; // state for button event handling
+
+function loadSounds() {
+  createjs.Sound.on("fileload", handleLoad, this);
+  // register sounds, which will preload automatically
+  createjs.Sound.registerSound("https://s3.amazonaws.com/nrf-codepen-assets/drone.mp3", soundProximity);
+  createjs.Sound.registerSound("https://s3.amazonaws.com/nrf-codepen-assets/water-drop.mp3", soundClick);
+}
+
+function handleLoad(evt) {
+
+  // create filter in existing context, connect to context destination
+  var context = createjs.Sound.activePlugin.context;
+  filterNode = context.createBiquadFilter();
+  filterNode.type = "lowpass";
+  filterNode.frequency.value = 20000;
+  filterNode.connect(context.destination);
+
+  // attach filter node to our existing dynamicsCompressorNode, which was connected to context.destination
+  var dynamicsNode = createjs.Sound.activePlugin.dynamicsCompressorNode;
+  dynamicsNode.disconnect();
+  dynamicsNode.connect(filterNode);
+
+  // wrap our sound playing in a click event so we can be played on mobile devices
+  $(".start-message").click(revealDemo);
+}
+
+function revealDemo() {
+  $("#filterButton").show();
+  $(".start-message").hide();
+
+  looping = true;
+  $("#filterButton").click(handleButtonClick); // add button's event handler
+
+  // proximity check
+  function mousedistance(mX, mY) {
+
+    var distance = calculateDistance($element, mX, mY);
+    var filterValue = (filterOffset - (filterMultiplier * distance));
+    filterNode.frequency.value = filterValue > 0 ? filterValue : 0;
+    // testing code
+    // $distance.text(distance);
+ };
+  
+  // add proximity-filter handler
+  $(document).mousemove( function (e) {
+    mousedistance(e.pageX, e.pageY);
+  });
+  
+  startLoopPlayback();
+}
+
+function handleButtonClick(e) {
+  e.stopImmediatePropagation();   // prevent double clicks
+  if (looping) {
+    // stopping the soundInstance doesn't seem to work when you have a filter node
+    // connected - you have to stop everything.
+    createjs.Sound.stop();
+    createjs.Sound.play(soundClick);
+    $element.text("Restart");
+    looping = false;
+  } else {
+    startLoopPlayback();
+    $element.text("Click Me");
+    looping = true;
+  }
+}
+
+function startLoopPlayback() {
+  filterNode.frequency.value = 200;
+  createjs.Sound.play(soundProximity, {loop: 20});
+}
+
+function calculateDistance(elem, mouseX, mouseY) {
+  return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left + (elem
+    .width() / 2)), 2) + Math.pow(mouseY - (elem.offset().top + (elem
+    .height() / 2)), 2)));
+};
+	</script>
 
 	</body>
 </html>

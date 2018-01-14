@@ -249,7 +249,6 @@
 </head>
 <body>
 	<h3 class="nudity"><button type="button" name="button" class="button-color" id="soundplay"><i class="fa fa-music" aria-hidden="true"></i></button><button type="button" name="button" class="button-color" id="soundpause"><i class="fa fa-pause-circle" aria-hidden="true"></i></button>18+</h3>
-	<div class="distance"></div>
 	<div id="cspio-page">
 		<div id="cspio-content">
 			<div style="display:block;width:100%;">
@@ -306,7 +305,6 @@
 var soundProximity = "Proximity";
 var $element = $("#soundplay");
 var $element2 = $("#soundpause")
-var $distance = $(".distance");
 var filterNode;
 var filterMultiplier = 18; // how fast will filter adjust?
 var filterOffset = 2500; // when will filter start adjusting?
@@ -342,21 +340,6 @@ function revealDemo() {
 
   looping = true;
   $("#soundpause").click(handleButtonClick); // add button's event handler
-
-  // proximity check
-  function mousedistance(mX, mY) {
-
-    var distance = calculateDistance($element2, mX, mY);
-    var filterValue = (filterOffset - (filterMultiplier * distance));
-    filterNode.frequency.value = filterValue > 0 ? filterValue : 0;
-    // testing code
-     $distance.text(distance);
- };
-  
-  // add proximity-filter handler
-  $(document).mousemove( function (e) {
-    mousedistance(e.pageX, e.pageY);
-  });
   
   startLoopPlayback();
 }
@@ -383,11 +366,6 @@ function startLoopPlayback() {
   createjs.Sound.play(soundProximity, {loop: 20});
 }
 
-function calculateDistance(elem, mouseX, mouseY) {
-  return Math.floor(Math.sqrt(Math.pow(mouseX - (elem.offset().left + (elem
-    .width() / 2)), 2) + Math.pow(mouseY - (elem.offset().top + (elem
-    .height() / 2)), 2)));
-}
 	</script>
 
 	</body>
